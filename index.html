@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EcoSmart — sistem rekomendasi pengelolaan sampah rumah tangga berbasis Simple Additive Weighting (SAW).">
+    <meta name="theme-color" content="#103925">
+    <meta name="color-scheme" content="light">
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="EcoSmart">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="EcoSmart">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="EcoSmart — Kelola Sampah Lebih Cerdas">
+    <meta property="og:description" content="Rekomendasi pengelolaan sampah rumah tangga dengan metode SAW.">
+    <meta property="og:image" content="assets/hero.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EcoSmart — Kelola Sampah Lebih Cerdas">
+    <meta name="twitter:description" content="Rekomendasi pengelolaan sampah rumah tangga dengan metode SAW.">
+    <meta name="twitter:image" content="assets/hero.webp">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "EcoSmart",
+      "description": "Sistem rekomendasi pengelolaan sampah rumah tangga berbasis Simple Additive Weighting (SAW).",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript"
+    }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#beranda">Lewati ke konten utama</a>
+<noscript><div class="noscript-banner">EcoSmart membutuhkan JavaScript agar analisis SAW, quiz, progress, dan navigasi interaktif dapat digunakan.</div></noscript>
+
+<header class="navbar">
+    <button class="brand brand-button" onclick="kembaliBeranda()" aria-label="Kembali ke Beranda">
+        <span class="brand-mark">🍃</span>
+        <span>Eco<span>Smart</span></span>
+    </button>
+
+    <nav class="nav-menu" aria-label="Navigasi utama">
+        <button class="nav-link active" data-page="beranda" onclick="kembaliBeranda()">Beranda</button>
+        <button class="nav-link" data-page="dashboard" onclick="bukaDashboard()">Dashboard</button>
+        <button class="nav-link" data-page="analisis" onclick="mulaiAnalisis()">Analisis</button>
+        <button class="nav-link" data-page="edukasi" onclick="bukaEdukasi()">Edukasi</button>
+        <button class="nav-link quiz-nav" data-page="quiz" onclick="bukaQuiz()">Quiz</button>
+        <button class="nav-link" data-page="progress" onclick="bukaProgress()">Progress</button>
+        <button class="nav-link" data-page="aksi" onclick="bukaAksi()">Aksi Saya</button>
+        <button class="nav-link" data-page="map" onclick="bukaEcoMap()">Eco Map</button>
+        <button class="nav-link" data-page="sawlab" onclick="bukaSAWLab()">SAW Lab</button>
+        <button class="nav-link" data-page="tentang" onclick="bukaTentang()">Tentang</button>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()" aria-label="Buka menu" aria-expanded="false" type="button">☰</button>
+
+    <div class="nav-tools">
+        <button class="icon-btn" onclick="bukaRiwayat()" title="Riwayat">🕘</button>
+        <button class="icon-btn" onclick="bukaProfil()" title="Profil">👤</button>
+        <button class="install-app-btn hidden" onclick="pasangAplikasi()" id="installAppButton" type="button" title="Tambahkan EcoSmart ke layar utama">📲</button>
+        <button class="btn btn-primary btn-small" onclick="bukaProfil()" id="profileButton">Masuk</button>
+    </div>
+</header>
+
+<!-- ====================== BERANDA ====================== -->
+<main id="beranda" class="page" tabindex="-1">
+    <section class="hero-section">
+        <div class="hero-image"></div>
+        <div class="hero-shade"></div>
+        <div class="hero-content container">
+            <div class="eyebrow">🌿 SMART WASTE MANAGEMENT</div>
+            <h1>Kecilkan Sampah,<br><em>Besarkan Masa Depan.</em></h1>
+            <p>Sistem rekomendasi pengelolaan sampah rumah tangga menggunakan metode Simple Additive Weighting (SAW).</p>
+            <div class="hero-actions">
+                <button class="btn btn-primary" onclick="mulaiAnalisis()">Mulai Analisis <span>→</span></button>
+                <button class="btn btn-light" onclick="bukaEdukasi()">Pelajari Sampah</button>
+                <button class="btn btn-pink" onclick="bukaQuiz()">🧠 Smart Quiz</button>
+            </div>
+            <div class="home-share-row"><button class="mini-action" onclick="bagikanEcoSmart()">📤 Bagikan EcoSmart</button><span>Bagikan link aplikasi dengan mudah ke teman atau grup.</span></div>
+            <div class="hero-mini-stats">
+                <div><strong>5</strong><span>Jenis Sampah</span></div>
+                <div><strong>5</strong><span>Alternatif</span></div>
+                <div><strong>SAW</strong><span>Metode</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pill-strip container">
+        <div><b>🌱</b><span>Lingkungan<br><small>lebih bersih</small></span></div>
+        <div><b>♻️</b><span>Sampah<br><small>lebih terkelola</small></span></div>
+        <div><b>📈</b><span>Masa Depan<br><small>lebih baik</small></span></div>
+        <div><b>🏠</b><span>Mulai dari<br><small>rumahmu</small></span></div>
+    </section>
+
+    <section class="quote-section container">
+        <div class="quote-card">
+            <div class="quote-mark">“</div>
+            <p>Bumi yang bersih dimulai dari keputusan kecil.</p>
+            <span>EcoSmart</span>
+        </div>
+        <div class="section-intro">
+            <span class="eyebrow green">KENAPA ECOSMART?</span>
+            <h2>Sampah bukan akhir.<br>Ia bisa jadi <em>awal baru.</em></h2>
+            <p>EcoSmart membantumu bergerak dari mengenali sampah, memilih alternatif pengelolaan, sampai melakukan aksi nyata.</p>
+        </div>
+    </section>
+
+    <section class="three-steps container">
+        <article class="step-card"><span>01</span><div class="step-icon blue">🔎</div><h3>Identifikasi</h3><p>Kenali jenis, kondisi, dan jumlah sampah.</p></article>
+        <article class="step-card"><span>02</span><div class="step-icon pink">🧠</div><h3>Rekomendasi</h3><p>Gunakan SAW untuk membandingkan alternatif.</p></article>
+        <article class="step-card"><span>03</span><div class="step-icon green">✅</div><h3>Aksi Nyata</h3><p>Ikuti langkah pengolahan dan pantau progresmu.</p></article>
+    </section>
+
+    <section class="preview-grid container">
+        <div class="preview-card dashboard-preview">
+            <div class="preview-copy"><span class="tag blue-tag">DASHBOARD</span><h3>Semua aktivitasmu dalam satu tempat.</h3><p>Eco Score, analisis terakhir, progress, badge, dan akses cepat.</p><button class="btn btn-secondary" onclick="bukaDashboard()">Buka Dashboard →</button></div>
+            <div class="mini-dashboard"><div class="circle-score">78%</div><div class="mini-lines"><b>Eco Score 780</b><span>12 Analisis</span><span>8 Challenge</span></div></div>
+        </div>
+        <div class="preview-card education-preview">
+            <div class="preview-copy"><span class="tag pink-tag">EDUKASI</span><h3>Kenali sampahmu, tentukan aksimu.</h3><p>Pelajari lima kelompok sampah dan alternatif pengelolaannya.</p><button class="btn btn-pink" onclick="bukaEdukasi()">Jelajahi Edukasi →</button></div>
+            <div class="floating-emoji">🌱 ♻️ 🧴</div>
+        </div>
+    </section>
+</main>
+
+<!-- ====================== DASHBOARD ====================== -->
+<section id="dashboard" class="page hidden">
+    <div class="top-banner green-banner">
+        <div class="container banner-inner"><div><span class="eyebrow">ECOSMART DASHBOARD</span><h1>Halo, Eco Hero! 👋</h1><p>Setiap langkah kecilmu berarti untuk bumi.</p></div><button class="btn btn-light" onclick="mulaiAnalisis()">+ Analisis Baru</button></div>
+    </div>
+    <div class="container page-body">
+        <div class="stat-grid">
+            <div class="stat-card green-card"><span>🌿</span><small>Eco Score</small><strong id="dashEcoScore">780</strong></div>
+            <div class="stat-card blue-card"><span>🔎</span><small>Analisis</small><strong id="dashAnalisis">0</strong></div>
+            <div class="stat-card pink-card"><span>🏅</span><small>Challenge</small><strong id="dashChallenge">0</strong></div>
+            <div class="stat-card orange-card"><span>🏆</span><small>Badge</small><strong id="dashBadge">1</strong></div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="panel-card">
+                <div class="panel-title"><div><span class="eyebrow green">PROGRESS</span><h2>Progress Keseluruhan</h2></div><strong id="dashProgressText">0%</strong></div>
+                <div class="big-progress"><span id="dashProgressFill"></span></div>
+                <p class="muted">Progress bertambah saat kamu melakukan analisis, menyelesaikan aksi, quiz, dan challenge.</p>
+            </div>
+            <div class="panel-card quick-panel"><div class="panel-title"><div><span class="eyebrow green">AKSES CEPAT</span><h2>Apa berikutnya?</h2></div></div>
+                <button class="quick-action" onclick="bukaSimulasi()">🔮 <span>What-if Simulator</span><small>Coba skenario lain</small></button>
+                <button class="quick-action" onclick="bukaChallenge()">🏆 <span>Eco Challenge</span><small>Tambah Eco Point</small></button>
+                <button class="quick-action" onclick="bukaRiwayat()">🕘 <span>Riwayat Analisis</span><small>Lihat hasil sebelumnya</small></button>
+                <button class="quick-action" onclick="bukaHelper()">💬 <span>Waste Helper</span><small>Cari jenis sampah tertentu</small></button>
+                <button class="quick-action" onclick="bukaVisual()">📷 <span>Identifikasi Visual</span><small>Simpan foto sebagai referensi</small></button>
+                <button class="quick-action" onclick="bukaEcoMap()">📍 <span>Eco Map</span><small>Lihat fasilitas contoh</small></button>
+                <button class="quick-action" onclick="bukaEdukasi()">📚 <span>Edukasi Sampah</span><small>Pelajari 5 jenis sampah</small></button>
+                <button class="quick-action" onclick="bukaQuiz()">🧠 <span>Smart Quiz</span><small>Uji pengetahuanmu</small></button>
+            </div>
+        </div>
+
+        <div class="dashboard-grid second">
+            <div class="panel-card"><div class="panel-title"><div><span class="eyebrow green">AKTIVITAS TERAKHIR</span><h2>Riwayatmu</h2></div><button class="text-link" onclick="bukaRiwayat()">Lihat semua →</button></div><div id="dashboardHistory" class="history-list"></div></div>
+            <div class="panel-card eco-tip"><div class="tip-blob">💡</div><div><span class="eyebrow green">ECO TIP</span><h3>Mulai dari satu kebiasaan.</h3><p>Pisahkan sampah dari sumbernya sebelum memilih metode pengelolaan.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====================== ANALISIS ====================== -->
+<section id="analisis" class="page hidden">
+    <div class="top-banner blue-banner"><div class="container banner-inner"><div><span class="eyebrow">SMART ANALYSIS</span><h1>Kenali sampahmu.</h1><p>Isi tiga informasi sederhana, lalu EcoSmart menghitung rekomendasi.</p></div></div></div>
+    <div class="container page-body">
+        <div class="stepper"><div class="step active"><b>1</b><span>Jenis</span></div><div class="step"><b>2</b><span>Kondisi</span></div><div class="step"><b>3</b><span>Jumlah</span></div></div>
+        <div class="analysis-layout">
+            <div class="analysis-card">
+                <span class="eyebrow blue">01 — DATA SAMPAH</span>
+                <h2>Apa jenis sampahmu?</h2><p class="muted">Pilih salah satu kategori di bawah ini.</p>
+                <div class="choice-grid five">
+                    <button class="choice-card" data-choice-group="jenis" data-value="organik" onclick="pilihJenis('organik')"><span>🌱</span><strong>Organik</strong><small>Sisa makanan</small></button>
+                    <button class="choice-card" data-choice-group="jenis" data-value="plastik" onclick="pilihJenis('plastik')"><span>🧴</span><strong>Plastik</strong><small>Botol & kemasan</small></button>
+                    <button class="choice-card" data-choice-group="jenis" data-value="kertas" onclick="pilihJenis('kertas')"><span>📄</span><strong>Kertas</strong><small>Koran & kardus</small></button>
+                    <button class="choice-card" data-choice-group="jenis" data-value="kaca" onclick="pilihJenis('kaca')"><span>🍾</span><strong>Kaca</strong><small>Botol & wadah</small></button>
+                    <button class="choice-card" data-choice-group="jenis" data-value="logam" onclick="pilihJenis('logam')"><span>🥫</span><strong>Logam</strong><small>Kaleng & besi</small></button>
+                </div>
+                <div class="hidden legacy-form-selects">
+                    <select id="jenisSampah"><option value="">Pilih</option><option value="organik">Organik</option><option value="plastik">Plastik</option><option value="kertas">Kertas</option><option value="kaca">Kaca</option><option value="logam">Logam</option></select>
+                    <select id="kondisiSampah"><option value="">Pilih</option><option value="bersih">Bersih</option><option value="sedang">Cukup Bersih</option><option value="kotor">Kotor</option></select>
+                    <select id="jumlahSampah"><option value="">Pilih</option><option value="sedikit">Sedikit</option><option value="sedang">Sedang</option><option value="banyak">Banyak</option></select>
+                </div>
+                <div id="conditionPanel" class="analysis-subpanel hidden"><span class="eyebrow green">02 — KONDISI</span><h3>Bagaimana kondisi sampahmu?</h3><div class="choice-grid three"><button class="choice-card compact" onclick="pilihKondisi('bersih', this)"><span>✨</span><strong>Bersih</strong><small>Tidak ada noda</small></button><button class="choice-card compact" onclick="pilihKondisi('sedang', this)"><span>🟡</span><strong>Cukup Bersih</strong><small>Sedikit kotoran</small></button><button class="choice-card compact" onclick="pilihKondisi('kotor', this)"><span>🟠</span><strong>Kotor</strong><small>Banyak kotoran</small></button></div></div>
+                <div id="quantityPanel" class="analysis-subpanel hidden"><span class="eyebrow pink">03 — JUMLAH</span><h3>Berapa perkiraan jumlahnya?</h3><div class="choice-grid three"><button class="choice-card compact" onclick="pilihJumlah('sedikit', this)"><span>🥤</span><strong>Sedikit</strong><small>&lt; 1 kg</small></button><button class="choice-card compact" onclick="pilihJumlah('sedang', this)"><span>🥫</span><strong>Sedang</strong><small>1–5 kg</small></button><button class="choice-card compact" onclick="pilihJumlah('banyak', this)"><span>🗑️</span><strong>Banyak</strong><small>&gt; 5 kg</small></button></div></div>
+                <div class="analysis-actions"><button class="text-btn" onclick="kembaliBeranda()">← Kembali</button><button class="btn btn-primary" id="analyzeButton" onclick="prosesAnalisis()" disabled>Analisis Sekarang →</button></div>
+            </div>
+            <aside class="analysis-side"><div class="side-card"><span>💡</span><h3>Tips</h3><p>Gunakan kondisi sebenarnya supaya hasil rekomendasi lebih relevan.</p></div><div class="side-card blue-side"><span>🧠</span><h3>Metode SAW</h3><p>EcoSmart membandingkan lima alternatif berdasarkan empat kriteria.</p></div></aside>
+        </div>
+    </div>
+</section>
+
+<!-- ====================== PROSES ====================== -->
+<section id="proses" class="page hidden process-page"><div class="container process-wrap"><div class="process-card"><div class="leaf-spinner">🍃</div><span class="eyebrow green">SMART PROCESS</span><h1>EcoSmart sedang menganalisis...</h1><p>Mohon tunggu sebentar, kami sedang menghitung rekomendasi terbaik untukmu.</p><div class="check-list"><div>✓ Membaca karakteristik sampah</div><div>✓ Menentukan nilai kriteria</div><div>✓ Melakukan normalisasi</div><div>✓ Menghitung nilai preferensi</div><div>✓ Menentukan ranking</div></div><div class="big-progress"><span class="process-fill"></span></div><strong>100%</strong><div class="mascot">🌱</div></div></div></section>
+
+<!-- ====================== HASIL ====================== -->
+<section id="hasil" class="page hidden"><div class="top-banner result-banner"><div class="container banner-inner"><div><span class="eyebrow">YOUR ECO RESULT</span><h1>Ini rekomendasimu.</h1><p>Hasil dihitung menggunakan metode Simple Additive Weighting (SAW).</p></div></div></div><div class="container page-body"><div id="hasilRekomendasi"></div></div></section>
+
+<!-- ====================== DETAIL SAW ====================== -->
+<section id="detail" class="page hidden"><div class="top-banner blue-banner"><div class="container banner-inner"><div><span class="eyebrow">SAW DETAIL</span><h1>Kenapa hasilnya begini?</h1><p>Periksa kontribusi kriteria, matriks, normalisasi, dan nilai preferensi.</p></div></div></div><div class="container page-body" id="detailContent"></div></section>
+
+<!-- ====================== SIMULATOR ====================== -->
+<section id="simulasi" class="page hidden"><div class="top-banner pink-banner"><div class="container banner-inner"><div><span class="eyebrow">WHAT-IF SIMULATOR</span><h1>Coba kemungkinan lain.</h1><p>Lihat bagaimana perubahan kondisi dan jumlah memengaruhi hasil rekomendasi.</p></div></div></div><div class="container page-body"><div class="sim-layout"><div class="panel-card"><span class="eyebrow pink">PARAMETER SIMULASI</span><label for="simKondisi">Kondisi baru</label><select id="simKondisi" onchange="hitungSimulator()"><option value="bersih">Bersih</option><option value="sedang">Cukup Bersih</option><option value="kotor">Kotor</option></select><label for="simJumlah" style="display:block;margin-top:12px">Jumlah baru</label><select id="simJumlah" onchange="hitungSimulator()"><option value="sedikit">Sedikit</option><option value="sedang">Sedang</option><option value="banyak">Banyak</option></select><div id="simResult" class="compare-card"></div></div><div class="panel-card"><h3>💡 Insight</h3><div id="simInsight" class="muted">Simulator menggunakan data analisis terakhir dan menghitung ulang nilai SAW dengan parameter yang baru.</div></div></div></div></section>
+
+<!-- ====================== AKSI ====================== -->
+<section id="aksi" class="page hidden"><div class="top-banner green-banner"><div class="container banner-inner"><div><span class="eyebrow">AKSI YANG DISARANKAN</span><h1 id="aksiTitle">Sampahmu → Aksimu</h1><p id="aksiSubtitle">Ikuti langkah-langkah berikut untuk menyelesaikan pengolahan.</p></div></div></div><div class="container page-body"><div class="journey-card"><div id="actionSteps" class="action-steps"></div><div class="action-footer"><div class="big-progress"><span id="actionProgressFill"></span></div><strong id="actionProgressText">0%</strong><button class="btn btn-primary" onclick="selesaiAksi()">Selesai & Tambah Eco Point</button></div></div><div class="journey-card"><span class="eyebrow green">WASTE JOURNEY</span><h2>Perjalanan Sampah</h2><div class="journey-line"><span>1. Pilah</span><span>2. Bersihkan</span><span>3. Keringkan</span><span>4. Salurkan</span><span>5. Produk Baru</span></div></div></div></section>
+
+<!-- ====================== MANFAAT ====================== -->
+<section id="manfaat" class="page hidden"><div class="top-banner green-banner"><div class="container banner-inner"><div><span class="eyebrow">MANFAAT PENGELOLAAN</span><h1>Dampak baik dari aksi kecil.</h1><p>Pengelolaan sampah yang tepat memberi manfaat lingkungan, ekonomi, sosial, dan kebiasaan.</p></div></div></div><div class="container page-body"><div class="benefit-grid"><div class="benefit-card green"><span>🌱</span><h3>Lingkungan</h3><p>Mengurangi sampah yang berakhir di lingkungan.</p></div><div class="benefit-card blue"><span>💰</span><h3>Ekonomi</h3><p>Membuka nilai tambah dari material tertentu.</p></div><div class="benefit-card pink"><span>👥</span><h3>Sosial</h3><p>Mendorong kebiasaan pengelolaan bersama.</p></div><div class="benefit-card orange"><span>❤️</span><h3>Kebiasaan</h3><p>Membentuk langkah kecil yang bisa diulang.</p></div></div><div class="quote-card wide">“Setiap sampah yang dikelola adalah langkah menuju bumi yang lebih sehat.”</div></div></section>
+
+<!-- ====================== EDUKASI ====================== -->
+<section id="edukasi" class="page hidden"><div class="top-banner education-banner"><div class="container banner-inner"><div><span class="eyebrow">LEARN • REDUCE • REUSE</span><h1>Kenali sampahmu.</h1><p>Semakin kenal, semakin mudah menentukan langkah pengelolaannya.</p></div></div></div><div class="container page-body"><div class="education-toolbar"><div class="filter-pills"><button class="pill active" onclick="filterEdukasi('all',this)">Semua</button><button class="pill" onclick="filterEdukasi('organik',this)">Organik</button><button class="pill" onclick="filterEdukasi('plastik',this)">Plastik</button><button class="pill" onclick="filterEdukasi('kertas',this)">Kertas</button><button class="pill" onclick="filterEdukasi('kaca',this)">Kaca</button><button class="pill" onclick="filterEdukasi('logam',this)">Logam</button></div><button class="btn btn-secondary" onclick="bukaQuiz()">🧠 Smart Quiz</button></div><div class="education-grid" id="educationGrid"></div><div class="education-cta"><div><span class="eyebrow pink">LANJUT BELAJAR</span><h2>Sudah kenal jenis sampahnya?</h2><p>Coba Smart Quiz untuk menguji pemahamanmu dan mengumpulkan Eco Point.</p></div><button class="btn btn-pink" onclick="bukaQuiz()">Mulai Smart Quiz →</button></div></div></section>
+
+<!-- ====================== QUIZ ====================== -->
+<section id="quiz" class="page hidden"><div class="top-banner pink-banner"><div class="container banner-inner"><div><span class="eyebrow">SMART QUIZ</span><h1>Seberapa eco kamu?</h1><p>Jawab cepat, belajar sedikit, dan kumpulkan Eco Point.</p></div></div></div><div class="container page-body"><div class="quiz-card"><div id="quizContent"></div><div class="quiz-footer-actions"><button class="btn btn-secondary" onclick="bukaEdukasi()">← Kembali ke Edukasi</button><button class="btn btn-primary" onclick="bukaDashboard()">Ke Dashboard →</button></div></div></div></section>
+
+<!-- ====================== HELPER ====================== -->
+<section id="helper" class="page hidden"><div class="top-banner blue-banner"><div class="container banner-inner"><div><span class="eyebrow">WASTE CONFUSION HELPER</span><h1>Bingung buang apa?</h1><p>Ketik nama barang dan EcoSmart akan memberi panduan awal.</p></div></div></div><div class="container page-body"><div class="helper-card"><div class="helper-search"><input id="helperInput" placeholder="Contoh: styrofoam"><button class="btn btn-primary" onclick="cariSampah()">Cari</button></div><div id="helperResult" class="helper-result"></div></div></div></section>
+
+<!-- ====================== VISUAL ====================== -->
+<section id="visual" class="page hidden"><div class="top-banner blue-banner"><div class="container banner-inner"><div><span class="eyebrow">IDENTIFIKASI VISUAL</span><h1>Tambahkan foto sampah.</h1><p>Unggah foto, lihat preview, lalu konfirmasi kategori agar EcoSmart bisa memberi panduan awal.</p></div></div></div><div class="container page-body"><div class="visual-card"><label class="upload-box"><input id="visualInput" type="file" accept="image/*" onchange="previewFoto(event)"><span>📷 Pilih Foto</span><small>PNG / JPG / WEBP • maksimal 5 MB</small></label><div id="visualPreview" class="visual-preview"></div><div id="visualActions" class="visual-actions"></div><div id="visualResult" class="visual-result"></div></div></div></section>
+
+<!-- ====================== CHALLENGE ====================== -->
+<section id="challenge" class="page hidden"><div class="top-banner orange-banner"><div class="container banner-inner"><div><span class="eyebrow">ECO CHALLENGE</span><h1>Tantangan hari ini.</h1><p>Selesaikan tantangan kecil dan kumpulkan Eco Point.</p></div></div></div><div class="container page-body"><div class="challenge-card"><div class="challenge-icon">🏆</div><h2>Bersihkan 5 botol plastik</h2><p id="challengeStatus">0 / 5</p><div class="bottle-row" id="bottleRow"></div><button class="btn btn-primary" onclick="tambahChallenge()">+1 Botol Selesai</button></div></div></section>
+
+<!-- ====================== PROGRESS ====================== -->
+<section id="progress" class="page hidden"><div class="top-banner green-banner"><div class="container banner-inner"><div><span class="eyebrow">PROGRESS & BADGE</span><h1>Perkembangan EcoSmart-mu.</h1><p>Lihat bagaimana kebiasaanmu berkembang dari waktu ke waktu.</p></div></div></div><div class="container page-body"><div class="progress-layout"><div class="progress-ring"><strong id="progressRingText">0%</strong><span>Progress</span></div><div class="panel-card"><h2>Pencapaian</h2><div id="badgeList" class="badge-grid"></div></div></div></div></section>
+
+<!-- ====================== RIWAYAT ====================== -->
+<section id="riwayat" class="page hidden"><div class="top-banner blue-banner"><div class="container banner-inner"><div><span class="eyebrow">RIWAYAT & INSIGHT</span><h1>Perjalanan analisismu.</h1><p>Lihat hasil yang pernah kamu lakukan.</p></div></div></div><div class="container page-body"><div class="panel-card"><div class="panel-title"><h2>Riwayat Analisis</h2><button class="text-link danger" onclick="hapusRiwayat()">Hapus semua</button></div><div id="historyFull" class="history-list"></div></div></div></section>
+
+<!-- ====================== ECO MAP ====================== -->
+<section id="map" class="page hidden"><div class="top-banner green-banner"><div class="container banner-inner"><div><span class="eyebrow">ECO MAP</span><h1>Cari fasilitas terdekat.</h1><p>Pilih kategori untuk melihat fasilitas contoh di sekitar area layanan EcoSmart.</p></div></div></div><div class="container page-body"><div class="map-layout"><div class="fake-map"><div class="map-road one"></div><div class="map-road two"></div><span class="map-pin p1">📍</span><span class="map-pin p2">📍</span><span class="map-pin p3">📍</span><div class="map-label">Bank Sampah Melati<br><small>± 1,2 km</small></div></div><div class="map-list"><button class="facility active" onclick="pilihFasilitas(this,'Bank Sampah Melati','1,2 km','Bank Sampah')">🏦 <span>Bank Sampah Melati<small>1,2 km</small></span></button><button class="facility" onclick="pilihFasilitas(this,'Eco Recycle Hub','2,7 km','Daur Ulang')">♻️ <span>Eco Recycle Hub<small>2,7 km</small></span></button><button class="facility" onclick="pilihFasilitas(this,'Kompos Hijau','3,1 km','Komposting')">🌱 <span>Kompos Hijau<small>3,1 km</small></span></button></div></div></div></section>
+
+<!-- ====================== SAW LAB ====================== -->
+<section id="sawlab" class="page hidden"><div class="top-banner dark-banner"><div class="container banner-inner"><div><span class="eyebrow">SAW LAB</span><h1>Uji bobotmu.</h1><p>Eksplorasi bagaimana bobot kriteria memengaruhi nilai preferensi.</p></div></div></div><div class="container page-body"><div class="sawlab-grid"><div class="panel-card"><div id="weightControls"></div><button class="btn btn-primary" onclick="hitungUlangSAWLab()">Hitung Ulang</button></div><div class="panel-card"><h2>Hasil Simulasi</h2><div id="sawLabResult"></div></div></div></div></section>
+
+<!-- ====================== TENTANG ====================== -->
+<section id="tentang" class="page hidden"><div class="top-banner light-banner"><div class="container banner-inner"><div><span class="eyebrow green">TENTANG ECOSMART</span><h1>Kenali Sampahmu.<br>Tentukan Aksimu.</h1><p>EcoSmart dirancang sebagai sistem rekomendasi pengelolaan sampah rumah tangga yang membantu pengguna memilih alternatif dengan metode SAW.</p></div></div></div><div class="container page-body"><div class="about-grid"><div class="panel-card"><h2>Metode SAW</h2><p>Simple Additive Weighting menggabungkan nilai beberapa kriteria melalui proses normalisasi dan pembobotan untuk menghasilkan nilai preferensi.</p><div class="formula">V<sub>i</sub> = Σ (W<sub>j</sub> × R<sub>ij</sub>)</div><div class="method-validation"><b>✓ Validasi dasar</b><span>Bobot total = 100% • Semua kriteria diperlakukan sebagai benefit.</span></div></div><div class="panel-card"><h2>Kriteria EcoSmart</h2><div class="criteria-list"><span>✓ Kemudahan — 25%</span><span>✓ Lingkungan — 30%</span><span>✓ Ekonomi — 20%</span><span>✓ Kesesuaian — 25%</span></div></div></div></div></section>
+
+<footer class="site-footer"><div class="container footer-inner"><div><div class="brand footer-brand"><span class="brand-mark">🍃</span><span>Eco<span>Smart</span></span></div><p>Kelola hari ini, jaga bumi esok hari.</p></div><div class="footer-links"><button onclick="bukaTentang()">Tentang</button><button onclick="bukaEdukasi()">Edukasi</button><button onclick="bukaSAWLab()">SAW Lab</button><button onclick="bagikanEcoSmart()">Bagikan</button></div></div><div class="container footer-meta"><span>♻️ EcoSmart • SAW • Mobile friendly</span><span>Data demo tersimpan di browser perangkat ini.</span></div></footer>
+
+<div id="eduDetailModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" onclick="tutupEduDetail()"></div>
+    <div class="profile-modal-card edu-detail-modal" role="dialog" aria-modal="true" aria-labelledby="eduDetailTitle">
+        <button class="modal-close" onclick="tutupEduDetail()" aria-label="Tutup">×</button>
+        <div id="eduDetailContent"></div>
+        <div class="profile-modal-actions">
+            <button class="btn btn-secondary" onclick="tutupEduDetail()">Tutup</button>
+            <button class="btn btn-primary" onclick="mulaiAnalisis();tutupEduDetail()">Coba Analisis →</button>
+        </div>
+    </div>
+</div>
+
+<div id="profileModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" onclick="tutupProfil()"></div>
+    <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
+        <button class="modal-close" onclick="tutupProfil()" aria-label="Tutup">×</button>
+        <span class="eyebrow green">ECOSMART PROFILE</span>
+        <h2 id="profileModalTitle">Siapa nama Eco Hero?</h2>
+        <p class="muted">Nama ini hanya disimpan di browser kamu untuk membuat dashboard lebih personal.</p>
+        <input id="profileNameInput" class="profile-input" placeholder="Contoh: Zara" maxlength="30">
+        <div class="profile-modal-actions">
+            <button class="btn text-btn danger-text" onclick="resetSemuaData()">Reset Data</button>
+            <button class="btn btn-secondary" onclick="tutupProfil()">Batal</button>
+            <button class="btn btn-primary" onclick="simpanProfil()">Simpan Profil</button>
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js?v=14"></script>
+<div class="install-banner hidden" id="installBanner"><div><strong>📲 Tambahkan EcoSmart ke HP</strong><span>Akses lebih cepat dari layar utama.</span></div><div><button class="btn btn-primary btn-small" onclick="pasangAplikasi()">Pasang</button><button class="mini-action" onclick="tutupInstallBanner()">Nanti</button></div></div>
+</body>
+</html>

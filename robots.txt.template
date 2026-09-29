@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Setelah mendapatkan URL publik, ganti DOMAIN-ANDA menjadi domain final.
+Sitemap: https://DOMAIN-ANDA/sitemap.xml
